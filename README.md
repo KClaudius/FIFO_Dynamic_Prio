@@ -10,7 +10,7 @@
 
 - **FIFO Queue**: Follows the standard FIFO principle for object handling.
 - **Dynamic Prioritization**: Adjust the priority of queued objects at any time.
-- **Universal Implementation**: Designed for use in various programming environments, particularly low-level programming scenarios._Hence the written code is not optimised for the python programming language._
+- **Universal Implementation**: Designed for use in various programming environments, particularly low-level programming scenarios. _Hence the written code is not optimised for the python programming language._
 
 ## Installation
 
@@ -25,25 +25,33 @@ Clone the repository:
 To use the FIFO_Dynamic_Prio class, you need to import it from the source module. Below is an example of how to create an instance of the class and use its methods.
 
 ```python
-from src.your_module import FIFO_Dynamic_Prio
+import sys
+import os
 
-# Create an instance of FIFO_Dynamic_Prio
-fifo_queue = FIFO_Dynamic_Prio(n=5)
+# Add the src directory to the system path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-# Enqueue objects
-fifo_queue.enqueue_object("Task 1")
-fifo_queue.enqueue_object("Task 2")
+from FIFO_Dynamic_Prio import FIFO_Dynamic_Prio
 
-# Prioritize an object
-fifo_queue.prioritise_object("Task 2", prio=1)
 
-# Serve the next object
-valid, next_serve = fifo_queue.next_serve()
-if valid:
-    print(f"Next to serve: {next_serve}")
+if __name__ == "__main__":
+    # Create an instance of FIFO_Dynamic_Prio
+    fifo_queue = FIFO_Dynamic_Prio(n=5)
 
-# Dequeue an object
-fifo_queue.dequeue_object("Task 1")
+    # Enqueue objects
+    fifo_queue.enqueue_object("Task 1")
+    fifo_queue.enqueue_object("Task 2")
+
+    # Prioritize an object
+    fifo_queue.prioritise_object("Task 2", prio=1)
+
+    # Serve the next object
+    valid, next_serve = fifo_queue.next_serve()
+    if valid:
+        print(f"Next to serve: {next_serve}")
+
+    # Dequeue an object
+    fifo_queue.dequeue_object("Task 1")
 ```
 
 
