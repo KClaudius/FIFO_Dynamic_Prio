@@ -1,0 +1,21 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore mypy cache
+.mypy_cache/
+
+# Ignore other common Python artifacts
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Ignore virtual environment folders
+venv/
+env/
